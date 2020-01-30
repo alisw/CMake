@@ -42,6 +42,8 @@ function(CMAKE_DETERMINE_COMPILER_ABI lang src)
     set(ENV{LC_MESSAGES} C)
     set(ENV{LANG}        C)
 
+    set(COMPILE_DEFINITIONS "${COMPILE_DEFINITIONS} -Wno-error")
+
     try_compile(CMAKE_${lang}_ABI_COMPILED
       ${CMAKE_BINARY_DIR} ${src}
       CMAKE_FLAGS ${CMAKE_FLAGS}
